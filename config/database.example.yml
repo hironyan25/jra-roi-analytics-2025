@@ -1,0 +1,21 @@
+default: &default
+  host: 127.0.0.1
+  port: 5432
+  dbname: pckeiba
+  user: postgres
+  password: postgres
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+  dbname: pckeiba_test
+
+production:
+  <<: *default
+  host: <%= ENV['DB_HOST'] %>
+  port: <%= ENV['DB_PORT'] %>
+  dbname: <%= ENV['DB_NAME'] %>
+  user: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASS'] %>
